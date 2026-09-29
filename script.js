@@ -1,5 +1,5 @@
 // === PEGÁ TU LINK DE GOOGLE APPS SCRIPT AQUÍ ===
-const ENDPOINT_URL = "TU_NUEVO_LINK_AQUI";
+const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbwva96GVwu-EHb1EH-KTafceFwMWpNFxNEkS1V3AlW2_iDlVOnmmSoz7IRpZ261ylX_/exec";
 
 const form = document.getElementById('f');
 const btn = document.getElementById('btn');
