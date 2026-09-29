@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+  min-height: 100vh;
+  background-color: #050914;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; color: #fff; overflow: hidden; position: relative;
+}
+
+/* Luces de fondo (Orbes) */
+.orb { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; animation: float 15s infinite ease-in-out alternate; }
+.orb-1 { width: 400px; height: 400px; background: rgba(34, 197, 94, 0.25); top: -100px; left: -100px; }
+.orb-2 { width: 500px; height: 500px; background: rgba(59, 130, 246, 0.2); bottom: -150px; right: -100px; animation-delay: -5s; }
+.orb-3 { width: 300px; height: 300px; background: rgba(168, 85, 247, 0.2); top: 50%; left: 50%; transform: translate(-50%, -50%); animation-duration: 25s; }
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(60px) translateX(40px); }
+}
+
+main { width: 100%; max-width: 450px; z-index: 1; position: relative; }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px; padding: 40px 35px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.header-form { text-align: center; margin-bottom: 25px; }
+.logo-icon { font-size: 2.5rem; color: #4ade80; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(74,222,128,0.5)); }
+h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #4ade80, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+p.sub { color: #94a3b8; font-size: 0.95rem; margin-top: 5px; }
+
+form { display: flex; flex-direction: column; gap: 20px; }
+
+.input-group { position: relative; display: flex; align-items: center; }
+.input-group i { position: absolute; left: 16px; color: #64748b; font-size: 1.1rem; transition: 0.3s; }
+
+input {
+  width: 100%; padding: 16px 16px 16px 48px; font-size: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;
+  color: #fff; transition: all 0.3s ease; outline: none;
+}
+input::placeholder { color: #64748b; }
+input:focus { border-color: #4ade80; background: rgba(0, 0, 0, 0.5); box-shadow: 0 0 20px rgba(74, 222, 128, 0.1); }
+input:focus + i, .input-group:focus-within i { color: #4ade80; }
+
+button {
+  margin-top: 10px; padding: 18px; border: none; border-radius: 16px;
+  background: linear-gradient(135deg, #22c55e, #059669); color: white;
+  font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+button:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(16, 185, 129, 0.5); }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:disabled { background: #475569; box-shadow: none; cursor: not-allowed; opacity: 0.7; }
+
+#msg { font-size: 0.9rem; text-align: center; display: none; padding: 12px; border-radius: 12px; font-weight: 500; }
+#msg.show { display: block; animation: shake 0.4s ease; }
+#msg.error { background: rgba(220, 38, 38, 0.1); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.3); }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.done { display: none; text-align: center; padding: 40px 20px; }
+.done.show { display: block; animation: zoomIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.done-icon { font-size: 5rem; color: #4ade80; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(74,222,128,0.4)); animation: scalePulse 2s infinite; }
+
+@keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes scalePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+.btn-reload { background: rgba(255,255,255,0.1); box-shadow: none; border: 1px solid rgba(255,255,255,0.2); }
+.btn-reload:hover { background: rgba(255,255,255,0.2); }
