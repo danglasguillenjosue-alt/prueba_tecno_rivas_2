@@ -22,7 +22,7 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  if (ENDPOINT_URL === "https://script.google.com/macros/s/AKfycbyWNugJK4MZ391mTE-qdSZLaZToAc_5ChlSQ619N2gmCt6vWS0n4hS-g_-QBhW4N1-w/exec" || ENDPOINT_URL.includes('PEGA_AQUI')) {
+  if (ENDPOINT_URL === "TU_NUEVO_LINK_AQUI" || ENDPOINT_URL.includes('PEGA_AQUI')) {
     msg.className = 'show error';
     msg.innerHTML = '<i class="fa-solid fa-link-slash"></i> Falta poner el link de Google en el archivo script.js';
     return;
